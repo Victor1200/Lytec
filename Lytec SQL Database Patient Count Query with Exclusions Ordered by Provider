@@ -1,0 +1,8 @@
+SELECT [provider], [Appt Date], [Length],[Appointment], [Chart], [Reason], [Status], [Appointment note]
+From dbo.appointment
+WHERE [Appt Date] between '2018-03-01' and '2018-03-31'
+And [Chart] IS NOT NULL AND datalength([Chart]) > 0
+And [status] NOT IN ('7','8','9','10')
+And [Appointment Note] not like '%ALLERGY%'
+And [Reason] not like '%ALRG%'
+order  by [provider] asc;
